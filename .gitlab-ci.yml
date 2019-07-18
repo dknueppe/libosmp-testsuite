@@ -1,0 +1,20 @@
+include:
+  template: SAST.gitlab-ci.yml
+
+stages:
+    - build
+    - test
+    
+build:
+    stage: build
+    script:
+        - make
+    artifacts:
+        paths:
+            - build
+
+testsuite:
+    stage: test
+    script:
+        - make test
+        
