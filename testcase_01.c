@@ -1,12 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "osmplib.h"
+#include "testsuite.h"
 
-#define TEST(func) \
-    if((func) != OSMP_ERROR) { \
-        printf("Test %s failed at test %s\n", argv[0], #func); \
-        return OSMP_ERROR; }
-
+#pragma GCC diagnostic ignored "-Wunused-parameter"
 int main(int argc, char* argv[]) 
 {
     char send_buffer[OSMP_MAX_PAYLOAD_LENGTH] = "";
@@ -27,7 +21,7 @@ int main(int argc, char* argv[])
     TEST(OSMP_RemoveRequest(req));
 
     OSMP_Init(&argc, &argv);
-    OSMP_Finalize();
+    //OSMP_Finalize();
 
     TEST(OSMP_Size(&size));
     TEST(OSMP_Rank(&rank));
@@ -43,3 +37,4 @@ int main(int argc, char* argv[])
     printf("%s finished successful!\n", argv[0]);
     return OSMP_SUCCESS;
 }
+#pragma GCC diagnostic pop
