@@ -8,7 +8,7 @@ stages:
 build:
     stage: build
     script:
-        - make
+        - make test -j$(nproc --all)
     artifacts:
         paths:
             - build
@@ -16,5 +16,5 @@ build:
 testsuite:
     stage: test
     script:
-        - make test
+        - python3 testsuite/testit.py
         
