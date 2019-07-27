@@ -17,7 +17,7 @@ for test in tests:
     except subprocess.CalledProcessError:
         test_failed.append(test)
 
-print('{} out of {} Tests ran successfully!'.format(len(tests), len(test_passed)))
+print('{} out of {} Tests ran successfully!'.format(len(test_passed), len(tests)))
 print('The following tests failed:')
 if len(test_failed) == 0:
     print('None')
