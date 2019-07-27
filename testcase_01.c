@@ -1,3 +1,7 @@
+/*
+ * The first tescase assures that none of the library functions return
+ * successfully before initializing the library or after it is finalized.
+ */
 #include "testsuite.h"
 
 #pragma GCC diagnostic ignored "-Wunused-parameter"
@@ -34,7 +38,6 @@ int main(int argc, char* argv[])
     TEST_NEG(OSMP_Wait(req));
     TEST_NEG(OSMP_RemoveRequest(req));
 
-    printf("%s finished successful!\n", argv[0]);
-    return OSMP_SUCCESS;
+    return errval;
 }
 #pragma GCC diagnostic pop

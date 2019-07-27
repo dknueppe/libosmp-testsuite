@@ -6,7 +6,7 @@
 
 #define TEST_FAILED 1
 
-int errval;
+int errval = EXIT_SUCCESS;
 
 #define _error { \
         printf("Error in File %s at line %d\n ", __FILE__, __LINE__); \

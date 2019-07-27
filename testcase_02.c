@@ -20,7 +20,6 @@ int main(int argc, char* argv[])
     TEST_POS(OSMP_Size(&size));
     TEST_POS(OSMP_Recv(send_buffer, 1, dt, &src, &len));
 
-    printf("%s finished successful!\n", argv[0]);
-    return OSMP_SUCCESS;
+    return EXIT_FAILURE;
 }
 #pragma GCC diagnostic pop

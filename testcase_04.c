@@ -1,3 +1,7 @@
+/*
+ * The fourth testcase determines the behaviour of the library when
+ * messages are longer than 'OSMP_MAX_PAYLOAD_LENGTH'
+ */
 #include "testsuite.h"
 
 #pragma GCC diagnostic ignored "-Wunused-parameter"
@@ -9,11 +13,11 @@ int main(int argc, char* argv[])
     OSMP_Datatype dt = OSMP_BYTE;
     OSMP_Request req = NULL;
 
-    TEST(OSMP_Init(&argc, &argv));
-    TEST(OSMP_Rank(&rank));
-    TEST(OSMP_Size(&size));
-
+    TEST_POS(OSMP_Init(&argc, &argv));
+    TEST_POS(OSMP_Rank(&rank));
+    TEST_POS(OSMP_Size(&size));
+    TEST_FALSE_POS(OSMP_Send(send_buffer, 1, dt, rank));
     printf("%s finished successful!\n", argv[0]);
-    return OSMP_SUCCESS;
+    return errval;
 }
 #pragma GCC diagnostic pop
