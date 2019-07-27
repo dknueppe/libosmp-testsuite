@@ -11,7 +11,7 @@ int retval;
 
 #define _error { \
         printf("Error in File %s at line %d\n", __FILE__, __LINE__); \
-        printf("\t caused by %s returning %d\n", #func, retval); \
+        printf("\t caused by #func returning %d\n", retval); \
         fflush(NULL); \
         errval = TEST_FAILED; }
 
