@@ -1,3 +1,9 @@
+/*
+ * The second testcase ensures that the receiver is actually blocked when
+ * there is no message available to read. Notice that the program is
+ * not supposed to run through successfully but rather get interrupted after
+ * a certain time, hence 'return EXIT_FAILURE'.
+ */
 #include "testsuite.h"
 
 #pragma GCC diagnostic ignored "-Wunused-parameter"
@@ -9,9 +15,10 @@ int main(int argc, char* argv[])
     OSMP_Datatype dt = OSMP_BYTE;
     OSMP_Request req = NULL;
 
-    TEST(OSMP_Init(&argc, &argv));
-    TEST(OSMP_Rank(&rank));
-    TEST(OSMP_Size(&size));
+    TEST_POS(OSMP_Init(&argc, &argv));
+    TEST_POS(OSMP_Rank(&rank));
+    TEST_POS(OSMP_Size(&size));
+    TEST_POS(OSMP_Recv(send_buffer, 1, dt, &src, &len));
 
     printf("%s finished successful!\n", argv[0]);
     return OSMP_SUCCESS;

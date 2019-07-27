@@ -20,8 +20,8 @@ int main(int argc, char* argv[])
     TEST_NEG(OSMP_Wait(req));
     TEST_NEG(OSMP_RemoveRequest(req));
 
-    OSMP_Init(&argc, &argv);
-    OSMP_Finalize();
+    TEST_POS(OSMP_Init(&argc, &argv));
+    TEST_POS(OSMP_Finalize());
 
     TEST_NEG(OSMP_Size(&size));
     TEST_NEG(OSMP_Rank(&rank));
