@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "osmplib.h"
+#include "datastructs.h"
+#include "nonblocking.h"
 
 #define TEST_FAILED 1
 

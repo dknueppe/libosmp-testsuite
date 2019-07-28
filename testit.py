@@ -11,7 +11,7 @@ for test in tests:
         proc.check_returncode()
         test_passed.append(test)
     except subprocess.TimeoutExpired:
-        if test == 'build/testcase_02' or test == 'build/testcase_03':
+        if test == 'build/testcase_02' or test == 'build/testcase_03' or test == 'build/testcase_05_1':
             test_passed.append(test)
         else:
             test_failed.append(test)        
