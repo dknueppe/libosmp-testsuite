@@ -17,7 +17,7 @@ int main(int argc, char* argv[])
     TEST_POS(OSMP_Rank(&rank));
     TEST_POS(OSMP_Size(&size));
     TEST_FALSE_POS(OSMP_Send(send_buffer, 1, dt, rank));
-    printf("%s finished successful!\n", argv[0]);
+
     return errval;
 }
 #pragma GCC diagnostic pop
