@@ -1,6 +1,7 @@
 import subprocess
+import glob
 
-tests = ['build/testcase_{:02d}'.format(i) for i in range(16)]
+tests = glob.glob('build/testcase*')
 test_passed = []
 test_failed = []
 
@@ -10,7 +11,7 @@ for test in tests:
         proc.check_returncode()
         test_passed.append(test)
     except subprocess.TimeoutExpired:
-        if test is tests[2] or test is test[3]:
+        if test == 'build/testcase_02' or test == 'build/testcase_03':
             test_passed.append(test)
         else:
             test_failed.append(test)        
