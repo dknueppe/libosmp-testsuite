@@ -1,6 +1,9 @@
 include:
   template: SAST.gitlab-ci.yml
-
+  
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+  
 stages:
     - build
     - test
@@ -14,7 +17,13 @@ build:
             - build
 
 testsuite:
+    image: "git.fh-muenster.de:4567/dk426722/libosmp:latest"
     stage: test
     script:
         - python3 testsuite/testit.py
-    allow_failure: true
+        
+mem_test:
+    image: "git.fh-muenster.de:4567/dk426722/libosmp:latest"
+    stage: test
+    script:
+        - valgrind --error-exitcode=2 ./build/osmprun
