@@ -1,4 +1,4 @@
 all:
-	echo Not implemented yet
+	@echo Not implemented yet
 
 .Phony: all
